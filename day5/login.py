@@ -15,15 +15,18 @@
 #         print("erro")
 
 
-for i in range(3):
-    username=input ( "UserName:" )
-    password=input("Passworld:")
-    if username == 'gongnanxiong' and password == '123456':
-       print("welcome %s" % username)
-       break
-    else:
-        print("账户名或密码错误")
+# for i in range(3):
+#     username=input ( "UserName:" )
+#     password=input("Passworld:")
+#     if username == 'gongnanxiong' and password == '123456':
+#        print("welcome %s" % username)
+#        break
+#     else:
+#         print("账户名或密码错误")
+#
+# #for else-----for循环中没有打断的时候回执行else
+# else:
+#     print("输入次数太多了")
 
-#for else-----for循环中没有打断的时候回执行else
-else:
-    print("输入次数太多了")
+a=dict([["iphone",5800],["mac",9000],["coffic",32],["python book",30],["bike",1500]])
+print(a)
