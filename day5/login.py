@@ -30,3 +30,13 @@
 
 a=dict([["iphone",5800],["mac",9000],["coffic",32],["python book",30],["bike",1500]])
 print(a)
+
+#同时给对个变量赋值
+c,d=[1,2]
+print(c)
+print(d)
+
+#把列表转换成带索引的元组(带参数代表从多少开始)
+f=enumerate([["iphone",5800],["mac",9000],["coffic",32],["python book",30],["bike",1500]],1)
+for i,v in f:
+    print(i,v)
