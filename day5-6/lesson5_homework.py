@@ -14,7 +14,7 @@ location={
             '济宁':['任城区','微山县','泗水县','梁山县']}
 }
 
-sheng=location.keys()
+sheng=list(location.keys())
 sheng_flag=True
 shi_flag=True
 xian_flag=True
@@ -22,7 +22,7 @@ while True:
     if sheng_flag==False or shi_flag==False or xian_flag==False:
         print("欢迎下次再来")
         break
-    print("以下是可选省份")
+    print("以下是可选省份:")
     for i,v in enumerate(sheng,1):
         print(i,v)
     input_1=input("请输入省编号")
@@ -36,19 +36,19 @@ while True:
         print("输入有误，请重新输入")
         continue
     else:
-        sheng_name=list(sheng)[int(input_1)-1]
-        print(sheng_name)
-        print('{name}省有以下管辖市'.format(name=sheng_name))
+        sheng_name=sheng[int(input_1)-1]
+        print('您选择的是{name}省，共有以下管辖市'.format(name=sheng_name))
         shi_list=location[sheng_name]
         shi_name_list=[]
         for k in shi_list.keys():
             shi_name_list.append(k)
-        for k ,j in enumerate(shi_name_list,1):
-            print(k,j)
+
         while True:
             if xian_flag==False:
                 break
-            input_2=input("请输入市编号：")
+            for k, j in enumerate(shi_name_list, 1):
+                print(k, j)
+            input_2 = input("请输入市编号：")
             if input_2 == 'quit':
                 shi_flag=False
                 break
@@ -63,7 +63,7 @@ while True:
             else:
                 choose_shi_name=shi_name_list[int(input_2)-1]
                 xian_list=shi_list[choose_shi_name]
-                print("%s市下面共有%s个县，分别是："%(choose_shi_name,len(xian_list)))
+                print("您选择的是%s市，下面共有%s个县，分别是："%(choose_shi_name,len(xian_list)))
                 for f,x in enumerate(xian_list,1):
                     print(f,x)
                 xian_input=input('是否继续?输入任意键返回到上一级,输入quit退出程序:')
