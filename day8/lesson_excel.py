@@ -3,7 +3,6 @@
 
 import openpyxl
 from openpyxl import Workbook
-
 def writeExcel(path):
     wb=Workbook()
     sheet=wb.active
@@ -18,7 +17,6 @@ def writeExcel(path):
     wb.save(path)
     print('写入成功')
 #writeExcel('2007.xlsx
-
 
 def readExcel(path):
     wx=openpyxl.load_workbook(path) #type:Workbook
