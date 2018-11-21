@@ -1,3 +1,4 @@
+import copy
 dict1=dict((('name','zhangsan'),('age',30),('job','it')))
 print(dict1)
 # print(tuple(dict1.items()))-->字典转换成元组（列表）
@@ -29,7 +30,25 @@ def fibs(number):
 for i in fibs(10):
     print(i)
 
-x='hello,world,gongnanxiong,nihao'
-print(x.split(','))
-print(x.rsplit(','))
+# x='hello,world,gongnanxiong,nihao'
+# print(x.split(','))
+# print(x.rsplit(','))
+#
+#
+# hello='ijjjj\nfdgyfgyd'
+# # repr是显示原始字符串  字符串前面加r也是
+# print(repr(hello))
+# print(hello)
+# print(r'jfdjsfjds\n')
+#
+# sss=':'.join('jjjjj')
+#
+# print(sss)
+
+sss=[[1,2],3,4]
+
+ccc=copy.deepcopy(sss)
+print(ccc)
+ccc[0][1]='sss'
+print(sss)
 
