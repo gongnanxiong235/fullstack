@@ -65,8 +65,14 @@ filter
 def func_filter(content):
     return str(content).isdigit()
 
+def func_filter_2(n):
+    if n=='a':return False
+    else:return True
+
 filter_a=filter(func_filter,['hello',123,'234','world'])
 print(list(filter_a))
+print(list(filter(func_filter_2,['a','b','c','d'])))
+
 
 
 '''
@@ -79,3 +85,19 @@ def func_reduce(a,b):
 
 reduce_a=reduce(func_reduce,range(1,101))
 print(reduce_a)
+
+#sum()
+print(sum([1,2,3,4,5,6]))
+
+# 元素只要包含None 0 ‘’ 都返回false 其余都返回True
+print(all([1,None]))
+
+'''
+函数式编程
+'''
+
+#用reduce实现阶乘
+print(reduce(lambda x,y:x*y,range(1,4)))
+
+#用lamda表达式实现map强大的功能
+print(list(map(lambda a:str(a).upper(),['a','b','c','d'])))
