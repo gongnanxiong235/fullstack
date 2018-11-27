@@ -5,15 +5,15 @@
 3.变量都是从内到外找，内层找不到再去外层找，同样内层无法改变外层的值，需要声明关键字global,nonlocal(嵌套函数)
 '''
 
-# age=18
-# def func1():
-#     age=73
-#     def func2():
-#         print ( age )  # 调用age，本级没有向上查找
-#     return func2  # 函数func1（）返回函数func2（）的名字func2，而不是func2（）这个函数
-# a=func1 ()  # 此时的a就等于函数func1（）返回的func2（）的函数名func2
-# print ( a )
-# a ()  # 那a再加上括号就等同于func2（）这个函数
+age=18
+def func1():
+    age=73
+    def func2():
+        print ( age )  # 调用age，本级没有向上查找
+    return func2  # 函数func1（）返回函数func2（）的名字func2，而不是func2（）这个函数
+a=func1 ()  # 此时的a就等于函数func1（）返回的func2（）的函数名func2
+print ( a )
+a ()  # 那a再加上括号就等同于func2（）这个函数
 
 
 
