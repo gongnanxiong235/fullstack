@@ -90,7 +90,7 @@ def login():
 # 装饰
 def hello2(f):
     def hello3():
-        global login_status
+        # global login_status
         if login_status is False:
             login()
         f()
@@ -112,9 +112,6 @@ go_jd_home()
 go_jd_finance()
 go_jd_shoppingcar()
 
-print(login_status)
-login()
-print(login_status)
 
 
 
