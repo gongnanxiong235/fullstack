@@ -88,8 +88,6 @@ def login():
                 print("erro")
 
 # 装饰
-
-
 def hello2(f):
     def hello3():
         global login_status
@@ -117,6 +115,14 @@ go_jd_shoppingcar()
 print(login_status)
 login()
 print(login_status)
+
+
+
+
+
+
+
+
 
 
 
