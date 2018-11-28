@@ -71,7 +71,7 @@ import time
 装饰器应用：进入菜单判断登录
 '''
 username,password='zhangsan','123456'
-login_status='f'
+login_status=False
 def login():
     for i in range(3):
         global login_status
@@ -79,7 +79,7 @@ def login():
         pwd=input("password:")
         if name==username and pwd==password:
             print('login success')
-            login_status='t'
+            login_status=True
             break
         else:
             if i<2:
@@ -89,37 +89,35 @@ def login():
 
 # 装饰
 
-def hello1(s):
-    def hello2(f):
-        def hello3():
-            if s!='t':
-                login()
-            f()
-        return hello3
-    return hello2
 
-@hello1(login_status)
+def hello2(f):
+    def hello3():
+        global login_status
+        if login_status is False:
+            login()
+        f()
+    return hello3
+
+@hello2
 def go_jd_home():
     print('welcome to jd_home')
 
-@hello1(login_status)
+@hello2
 def go_jd_finance():
     print('welcome to jd_finance')
 
-@hello1(login_status)
+@hello2
 def go_jd_shoppingcar():
     print('welcome to jd_shoppingcar')
 
-print(login_status)
 go_jd_home()
-print(login_status)
 go_jd_finance()
-print(login_status)
 go_jd_shoppingcar()
 
-# print(login_status)
-# login()
-# print(login_status)
+print(login_status)
+login()
+print(login_status)
+
 
 
 
