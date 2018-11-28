@@ -6,6 +6,9 @@
 装饰函数一定要放在被装饰函数的上面，不然会报错，找不到
 '''
 import time
+from day5 import login
+import test_package
+import day6
 #
 # def func_decorate(f):
 #     def inner():
@@ -70,48 +73,55 @@ import time
 '''
 装饰器应用：进入菜单判断登录
 '''
-username,password='zhangsan','123456'
-login_status=False
-def login():
-    for i in range(3):
-        global login_status
-        name=input("username:")
-        pwd=input("password:")
-        if name==username and pwd==password:
-            print('login success')
-            login_status=True
-            break
-        else:
-            if i<2:
-                print("please enter agin")
-            else:
-                print("erro")
+# username,password='zhangsan','123456'
+# login_status=False
+# def login():
+#     for i in range(3):
+#         global login_status
+#         name=input("username:")
+#         pwd=input("password:")
+#         if name==username and pwd==password:
+#             print('login success')
+#             login_status=True
+#             break
+#         else:
+#             if i<2:
+#                 print("please enter agin")
+#             else:
+#                 print("erro")
 
 # 装饰
-def hello2(f):
-    def hello3():
-        # global login_status
-        if login_status is False:
-            login()
-        f()
-    return hello3
+# def hello2(f):
+#     def hello3():
+#         # global login_status
+#         if login_status is False:
+#             login()
+#         f()
+#     return hello3
+#
+# @hello2
+# def go_jd_home():
+#     print('welcome to jd_home')
+#
+# @hello2
+# def go_jd_finance():
+#     print('welcome to jd_finance')
+#
+# @hello2
+# def go_jd_shoppingcar():
+#     print('welcome to jd_shoppingcar')
+#
+# go_jd_home()
+# go_jd_finance()
+# go_jd_shoppingcar()
 
-@hello2
-def go_jd_home():
-    print('welcome to jd_home')
 
-@hello2
-def go_jd_finance():
-    print('welcome to jd_finance')
 
-@hello2
-def go_jd_shoppingcar():
-    print('welcome to jd_shoppingcar')
+login.hello()
 
-go_jd_home()
-go_jd_finance()
-go_jd_shoppingcar()
+test_package.hello.hhhhh()
 
+day6.testmodul.hello()
 
 
 

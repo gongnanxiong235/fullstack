@@ -40,3 +40,6 @@ print(d)
 f=enumerate([["iphone",5800],["mac",9000],["coffic",32],["python book",30],["bike",1500]],1)
 for i,v in f:
     print(i,v)
+
+def hello():
+    print('hello')
