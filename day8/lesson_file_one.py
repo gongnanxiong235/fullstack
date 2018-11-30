@@ -36,6 +36,7 @@ f=open('file_ci','r+',encoding='utf-8')
 # # f.close()
 
 for i in f:
-    if i.startswith('hello'):i="".join((i.rstrip(),'hello'))
+    if i.startswith('hello'):
+        i="---".join((i.rstrip(),'hello'))
     print(i.rstrip())
 f.close()
