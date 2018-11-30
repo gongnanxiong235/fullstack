@@ -1,4 +1,4 @@
-import random
+git import random
 print(random.random()) #f返回0-1之间的小数
 print(random.randint(1,8)) #返回1-8之间的整数，包括8
 print(random.randrange(0,10,2)) #范湖0-10之间，步长为2的整数，不包含10
