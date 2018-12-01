@@ -18,6 +18,8 @@ class ConfigUtil:
         return self.read_config('DATABASE',key)
 
 
+
+
 # ConfigUtil().add(**{'DATABASE':{'url':'url'}})
 print(ConfigUtil().read_config('DATABASE','url'))
 print(ConfigUtil().read_config_database('url'))
