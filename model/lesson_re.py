@@ -55,3 +55,31 @@ print(re.findall('135\d{4}5555','fdfdfijnnvdif13599995555'))  # 135开头，5555
 print(re.findall('\s\d','fdfdfijnnvdif13 59 999 55 55')) #匹配空白加数字
 print(re.findall(r'I\b','Hello I am a LIST')) # 空格 & 等都是特殊字符
 print(re.findall('a\.','a.dfdf')) #. 遇上\ 就是普通的一个点
+
+print(re.findall('www.(\w+).com','www.baidu.com')) # 分组后的结果只是分组的内容 ：['baidu']
+print(re.findall('www.\w+.com','www.baidu.com'))
+print(re.findall('www\.\w+\.com','www.baidu.com'))
+print(re.findall('www.(?:\w+).com','www.baidu.com'))  #在分组中加上?:的功能是取消分组的权限(分组的权限是匹配出的结果只是分组的内容)
+
+
+'''
+re的常用方法
+
+match(规则,字符串) 只在开始匹配规则，满足返回对象，不满足返回None
+split(规则,字符串) 通过规则分割字符串 注：先匹配第一个，并分割，再从第一个分割后的匹配第二个，并分割。。。
+sub(规则,新内容,字符串) 通过规则匹配字符串内容，并把匹配结果替换成新内容
+compile(规则) 将规则封装一个对象中，下次可以直接用对象查询，不需要输规则
+finditer(规则,字符串)将查找的结果成一个迭代器,使用next方法取,每个内容用group再取数
+'''
+
+ret=re.search('a\w+','hfhdjahfdjhfa1212adjfiksjdfa ') # 返回的ret是个对象
+print(ret.group())  # 取值，注意：sesch方法只匹配第一次  如果没有只 ret对象是个None
+
+
+#re.match()  # 只在行首匹配，匹配不到返回None  与'^hello'的功能一样
+#re.compile('\w+')返回一个规则对象 可以用这些规则对象再去调用其他re的方法 这些方法后面就只需要加一个待匹配的字符串，无需加规则了
+print(re.sub('hel{2}]o','love','hhhellofdfdfhellofdsfdherhello'))
+
+# ip = '192.168.266.1'
+# # a = re.findall(r'^(?:\d\.|\d\d\.|1\d{2}\.|2[0-4]{1}\d\.|25[0-5]{1}\.){3}(?:\d|\d\d|1\d{2}|2[0-4]{1}\d|25[0-5]{1})',ip)
+# # print(a)
