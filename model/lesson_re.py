@@ -4,7 +4,7 @@ import re
 元字符
 '''
 ss='hello world'
-rs=re.findall('w..l',ss) # .可以代表任何字符（除了换行符）,但是只能代表一个字符
+rs=re.findall('w..sssl',ss) # .可以代表任何字符（除了换行符）,但是只能代表一个字符
 print(rs)
 
 rs=re.findall('^h...o','hfdsjijdsighdihellofsdfd')# ^ ：只从字符串的开始开始匹配，所以这个表达式的结果是空
