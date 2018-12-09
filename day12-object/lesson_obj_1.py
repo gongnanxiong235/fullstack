@@ -9,47 +9,47 @@ python的多继承:
 3.如果左右侧有一个共同的根时（顶层有一个公共的父类）,根最后执行
 '''
 
-class GradeFather(object):
-    def g1(self):
-        print('g1')
-    def g2(self):
-        print('g2')
-
-class Father(GradeFather):
-    def f1(self):
-        print('f1')
-    def f2(self):
-        print('f2')
-    def f3(self):
-        print('f3')
-    def f4(self):
-        print('f4')
-    def g2(self):
-        print('father g2')
-
-class Son(Father):
-    def s1(self):
-        print('s1')
-    def s2(self):
-        print('s2')
-    def s3(self):
-        print('s3')
-    def s4(self):
-        print('s4')
-    def f1(self):
-        super(Son,self).f1() # 调用父类的方法
-        Father.f2(self) #调用父类的方法
-        print('self')
-        print('------')
-        super(Father,self).g1()
-        super(Son, self).g1()
-        print('--------')
-
-son=Son()
-son.f1()
-son.f2() # 继承后可以用父类的方法
-son.g1() # 父类找不到可以到父类的父类中寻找
-son.g2() # 自身类没有方法，先去父类中找，如果父类中找到了 就不去父类的父类找了
+# class GradeFather(object):
+#     def g1(self):
+#         print('g1')
+#     def g2(self):
+#         print('g2')
+#
+# class Father(GradeFather):
+#     def f1(self):
+#         print('f1')
+#     def f2(self):
+#         print('f2')
+#     def f3(self):
+#         print('f3')
+#     def f4(self):
+#         print('f4')
+#     def g2(self):
+#         print('father g2')
+#
+# class Son(Father):
+#     def s1(self):
+#         print('s1')
+#     def s2(self):
+#         print('s2')
+#     def s3(self):
+#         print('s3')
+#     def s4(self):
+#         print('s4')
+#     def f1(self):
+#         super(Son,self).f1() # 调用父类的方法
+#         Father.f2(self) #调用父类的方法
+#         print('self')
+#         print('------')
+#         super(Father,self).g1()
+#         super(Son, self).g1()
+#         print('--------')
+#
+# son=Son()
+# son.f1()
+# son.f2() # 继承后可以用父类的方法
+# son.g1() # 父类找不到可以到父类的父类中寻找
+# son.g2() # 自身类没有方法，先去父类中找，如果父类中找到了 就不去父类的父类找了
 
 
 class Foo:
@@ -70,7 +70,7 @@ class Foo:
 
     @property     #  属性，相当于JAVA中的get方法 调用的时候不用加括号 例如 foo.name  只读
     def name(self):
-        return self._name  # _name在这里==name 这是一种内部使用的固定方法，在赋值的时候如果不用_name 会报错，造成死循环
+        return self.name  # _name在这里==name 因为方法名和属性名一样导致了无限递归，在赋值的时候如果不用_name 会报错，造成死循环
 
     @name.setter   #  属性，相当于JAVA中的set方法，调用的时候不用加括号 如果没有此方法，通过foo.name=value 会直接报错(属性名.setter) 可写
     def name(self,value):
