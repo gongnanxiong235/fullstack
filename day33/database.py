@@ -1,10 +1,15 @@
 # author:gongnanxiong
 # date:2018/12/13
 
+import sys
+import os
+print('hello',os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import re
 import pymysql
 # from config import ConfigUtil as c
 from day33.config import ConfigUtil
+
 
 class MysqldbHelper(object):
     conf = ConfigUtil()
@@ -104,7 +109,7 @@ if __name__ == '__main__':
     a= list(range(97,123))+list(range(65,91))
 
     begin=time.time()
-    for i in range(1000):
+    for i in range(1):
         name=''
         for i in range(8):
             name+=chr(random.choice(a))
