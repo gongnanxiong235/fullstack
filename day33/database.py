@@ -109,7 +109,7 @@ if __name__ == '__main__':
     a= list(range(97,123))+list(range(65,91))
 
     begin=time.time()
-    for i in range(1):
+    for i in range(1000):
         name=''
         for i in range(8):
             name+=chr(random.choice(a))
