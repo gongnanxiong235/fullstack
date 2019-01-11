@@ -1,0 +1,168 @@
+
+<!--
+选择器的种类：
+    1.全匹配选择器：*
+    2.全标签选择器：p div  span 等
+    3.id选择器：#id
+    4.class选择器:.class
+    5.后代选择器 不管是子代还是孙代 都会遵循此规则
+    6.子代选择器。只对子代起作用
+    7.多个选择器，用逗号
+    8.毗邻选择器，用+  只能匹配到下面相邻的标签
+    9.属性选择器
+        a.[class]
+        b.p[class]
+        c.[class=xxx]
+        d.[zunzun]:自定义属性
+        e.[zunzun^=XXX]:以XXX开头
+        f.[zunzun&=XXX]:以XXX结尾
+        g.[class~=XXX]:多个属性包含XXX
+    10.伪选择器:
+        a:hover{
+            color: #cc3399;
+        }
+
+        a:link{
+            color: aqua;
+        }
+
+        a:visited{
+
+            color: yellow;
+        }
+
+        a:active{
+            color: #C0C0C0;
+        }
+
+        #h2:after{
+            content: "nihao";  在 之后加上内容
+        }
+
+        #h2:before{
+            content: "world";
+        }
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+
+        /*p{*/
+            /*color: #cc3399;*/
+        /*}*/
+
+        /*#p1{*/
+            /*color: blue;*/
+        /*}*/
+
+        /*.class1{*/
+            /*color: aquamarine;*/
+            /*font-size: 45px;*/
+        /*}*/
+
+        /*.class1{*/
+            /*color: #cc3399;*/
+            /*font-size: 45px;*/
+        /*}*/
+
+        /*后代选择器 不管是子代还是孙代 都会遵循此规则*/
+        /*div div{*/
+            /*color: #cc3399;*/
+            /*font-size: 45px;*/
+        /*}*/
+
+        /* 子代选择器。只对子代起作用*/
+        /*div>div>.class1{*/
+            /*color: #cc3399;*/
+            /*background-color: blue;*/
+        /*}*/
+
+        /*多个选择器，用逗号*/
+        /*#p1,div>#uu>.class1{*/
+            /*color: #cc3399;*/
+            /*background-color: blue;*/
+        /*}*/
+
+        /*p标签的所有有class属性的*/
+        /*p[class]{*/
+            /*color: aqua;*/
+            /*font-size: large;*/
+        /*}*/
+
+        /*p标签的所有有class=class2的*/
+        p[class='class2']{
+            color: #cc3399;
+        }
+
+        /*属性值可以有多个，~=表示包含XXX值得*/
+        p[class~='class2']{
+            color: #cc3399;
+        }
+
+        /*自定义属性*/
+        [zunzun]{
+            color: blue;
+        }
+
+        a:hover{
+            color: #cc3399;
+        }
+
+        a:link{
+            color: aqua;
+        }
+
+        a:visited{
+
+            color: yellow;
+        }
+
+        a:active{
+            color: #C0C0C0;
+        }
+
+        #h2:after{
+            content: "nihao";
+        }
+
+        #h2:before{
+            content: "world";
+        }
+
+    </style>
+</head>
+<body background="http://img4.imgtn.bdimg.com/it/u=3335258443,1321329535&fm=11&gp=0.jpg">
+
+<!--<p id="p1"> hello p1</p>-->
+<!--<p class="class1"> hello p2</p>-->
+<!--<div id="div1">-->
+    <!--<div id="uu">-->
+        <!--<p class="class1">jjjjjj</p>-->
+        <!--<div id="j">-->
+            <!--<p class="class1"> div p1</p>-->
+            <!--<p> div p2</p>-->
+            <!--<p> div p3</p>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<p class="class1 class2">hello1</p>
+<p class="class1">hello2</p>
+<p class="class2">hello3</p>
+<p class="class3">hello4</p>
+<h1 class="class1">h11111</h1>
+<h1 zunzun="shuai">shuai</h1>
+
+<a href="http://gongnanxiong.top">baidu</a>
+<h2 id="h2">h22222</h2>
+
+
+</body>
+</html>

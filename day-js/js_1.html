@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<script>
+    // alert(typeof (1+"hello"))
+
+    var a=["hello","xiaozunzun","world"]
+    // for(var i in a){
+    //     console.log(a[i])
+    // }
+
+    for(var j=0;j<a.length;j++)
+    {
+        console.log(a[j])
+    }
+
+    var sum=0
+    for (let i = 0; i <=100; i++) {
+
+        sum=sum+i;
+    }
+    console.log(sum)
+
+    var hello=0
+    while(true)
+    {
+        console.log(hello)
+        hello+=1;
+        if(hello==5)
+        {
+            break;
+        }
+    }
+
+    for (let i = 1; i <6 ; i++) {
+
+        document.write("<H"+i+">hello</H"+i+">")
+        document.write("</br>")
+    }
+
+    dict={"hello":"world","baobei":"xiaozunzun","laopo":"heyinzhen"};
+    for (var i in dict) {
+        console.log(dict[i])
+    }
+
+    function f1(a,b) {
+        return parseInt(a+b);
+    }
+    var c=f1(2,3)
+    console.log(c)
+
+</script>
+
+</body>
+</html>

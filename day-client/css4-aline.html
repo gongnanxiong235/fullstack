@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        div[class="outer"]{
+
+            width: 50%;
+            border: solid 1px black; /* 设置边框:dashed表示虚线*/
+            margin: 50px;
+        }
+        [class="inner"]{
+
+            border: solid 1px black;
+            /*padding-top: 40px;*/
+            /*padding-left: 50%;*/
+            /*margin: 50%;*/
+            margin-top: 40px;
+            margin-left: 50%;
+            /*padding-top: 50px;*/
+            /*padding-bottom: 150px;*/
+        }
+        #div1{
+            height: 100px;
+            background-color: #cc3399;
+
+        }
+        #div2{
+            height: 100px;
+            background-color: aqua;
+        }
+        #div3{
+            height: 100px;
+            background-color: blueviolet;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="div1" class="outer">
+    <div id="inner-1" class="inner">div1</div>
+</div>
+
+<div id="div2" class="outer">
+    <div id="inner2" class="inner">div2</div>
+</div>
+
+<div id="div3" class="outer">
+    <!--<div id="inner3" class="inner">div3</div>-->
+    <p id=""inner3 class="inner">civ3</p>
+</div>
+
+</body>
+</html>

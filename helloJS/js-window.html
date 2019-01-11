@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hello{
+            width: 249px;
+            line-height: 16px;
+
+        }
+        input{
+            border: solid 1px coral;
+        }
+        #div1{
+            height: 300px;
+            width: 300px;
+            background-color: #cc3399;
+        }
+        #div2{
+            height: 150px;
+            width: 150px;
+            background-color: greenyellow;
+        }
+        .bigger{
+            font-size: large;
+        }
+        .smaller{
+            font-size: smaller;
+        }
+    </style>
+</head>
+<body  id="sbm">
+
+    <!--省市二级联动-->
+    <select id="sheng" onchange="show1(this)">
+        <option>请选择省</option>
+    </select>
+
+    <select id="shi">
+
+    </select><br>
+
+    <!--链接跳转使用函数-->
+    <a href="javascript:show(this)">链接跳转使用函数</a>
+
+    <div id="haha">测试字体变大变小</div>
+    <input type="button" value="变大" id="bigger">
+    <input type="button" value="变小" id="smaller"><br>
+    <input type="text" id="input_time_text" class="hello">
+    <input type="button" value="begin" onclick="intev()">
+    <input type="button" value="end" onclick="endIntev()"></br>
+    <input type="text" class="content" value="please enter your question" style="width: 200px" onfocus="focus1()" onblur="blur1()"><br>
+    <form>
+        <input type="text">
+        <input type="submit" value="测试阻止submit事件" >
+    </form>
+
+    <div id="div1" onclick="alert('div1')" >div1
+        <div id="div2" onclick="stopEvent(event)">div2</div>
+    </div>
+
+
+    <!--动态添加标签   overflow: auto,自动添加滚动-->
+    <div style="height: 300px;background-color: #cc3399 ;margin-top: 30px;overflow: auto" id="par">div1
+        <div>div2</div>
+    </div>
+    <input type="button" value="动态添加标签" id="add">
+    <input type="button" value="自动删除最后一个标签" id="delete">
+
+    <script>
+        //省市二级联动代码
+        var shandong=["青岛市","济南市","烟台市"];
+        var anhui=["合肥市","六安市","芜湖市"];
+        var henan=["郑州市","开封市","洛阳市"];
+        var sichuan=["成都市","绵阳市","南充市"];
+        var data={"山东省":shandong,"安徽省":anhui,"河南省":henan,"四川省":sichuan}
+        var sheng_select=document.getElementById("sheng")
+        var shi_select=document.getElementById("shi")
+        function removeCity(shi_select) {
+            // var op_list=shi_select.options
+            // if(op_list.length>0)
+            // {
+            //     console.log(op_list)
+            //     //当程序运行后我们发现无论在FireFox还是在IE下，均不能完全的删除所有的子节点（FireFox中把空白区域也当成节点，所以删除结点的结果会不一样的）
+            //     for (var j = op_list.length - 1; j >= 0; j--) {
+            //         console.log(op_list[j])
+            //         shi_select.removeChild(op_list[j])
+            //     }
+            // }
+            shi_select.options.length=0;
+        }
+        //动态生成省的加载项
+        for(var i in data)
+        {
+            var sheng_option=document.createElement("option")
+            sheng_option.innerHTML=i;
+            sheng_select.appendChild(sheng_option)
+        }
+
+        //动态生成市的加载项
+        function show1(self) {
+            var sheng_name=self.options[self.selectedIndex].value
+
+            if(sheng_name=="请选择省")
+            {
+                removeCity(shi_select);
+                return;
+            }
+            removeCity(shi_select);//清除上一次选择的内容
+            var shi_list=data[sheng_name];
+            for (let i = 0; i < shi_list.length; i++) {
+
+                var shi_name=shi_list[i];
+                var shi_option=document.createElement("option")
+                shi_option.innerText=shi_name;
+                shi_select.appendChild(shi_option)
+
+            }
+        }
+
+        function show()
+        {
+            alert("222")
+        }
+
+        document.getElementById("bigger").onclick=function()
+        {
+            document.getElementById("haha").classList.add("bigger")
+        }
+
+        //动态加载css样式
+        document.getElementById("smaller").onclick=function()
+        {
+            document.getElementById("haha").classList.remove("bigger")
+            document.getElementById("haha").classList.add("smaller")
+        }
+
+        document.getElementById("add").onclick=function () {
+            var parent=document.getElementById("par");
+            var pp=document.createElement("p")
+            pp.style.color="red"
+            pp.innerHTML="hello gongxiaobao";
+
+            parent.appendChild(pp)
+        }
+
+        document.getElementById("delete").onclick=function () {
+
+            var parent=document.getElementById("par");
+            var lastSon=parent.lastElementChild;
+            parent.removeChild(lastSon)
+        }
+        function stopEvent(event)
+        {
+            alert("div2")
+            event.stopPropagation();//阻止外层事件
+        }
+        // 绑定事件的另外一种方式
+        document.getElementById("sbm").onsubmit=function (event) {
+            alert("111")
+            return false;
+            //event.preventDefault();//阻止默认事件
+        }
+
+        function focus1() {
+            var content=document.getElementsByClassName("content")[0];
+            if (content.value.trim()=="please enter your question")
+            {
+                document.getElementsByClassName("content")[0].value="";
+            }
+
+        }
+        function blur1() {
+            var content=document.getElementsByClassName("content")[0];
+            if (content.value.trim().length==0)
+            {
+                content.value="please enter your question";
+            }
+        }
+        function setTime() {
+            var t=document.getElementById("input_time_text");
+            t.value=getTime();
+        }
+        var ID;
+        function intev() {
+            endIntev();//首先清除上一次的ID
+            setTime();//点击的时候不用等一秒
+            ID=setInterval(setTime,1000)
+        }
+        function endIntev() {
+            clearInterval(ID)
+        }
+        function getTime() {
+            var current=new Date()
+            var year=current.getFullYear();
+            var month=current.getMonth();
+            var day=current.getDate();
+            var hours=current.getHours();
+            var minutes=current.getMinutes();
+            var sec=current.getSeconds();
+            var week=current.getDay()
+            return year+"年"+f_md(month)+"月"+f_md(day)+"日"+" "+hours+"时"+minutes+"分"+sec+"秒"+" "+getWeek(week) ;
+        }
+        function getWeek(num)
+        {
+            var weeks=["星期日","星期一","星期二","星期三","星期四","星期五","星期六",];
+            return weeks[num];
+        }
+        function f_md(num)
+        {
+            if(num<10)
+            {
+                return "0"+num;
+            }
+            else {return num}
+        }
+        getTime()
+    </script>
+</body>
+</html>

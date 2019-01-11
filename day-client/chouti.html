@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        .navicat{
+            width: 100%;
+            line-height: 44px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #2459a2;
+        }
+        .navicat-content{
+            width: 1016px;
+            line-height: 44px;
+            margin: 0 auto;
+            /*border: solid 1px rosybrown;*/
+        }
+        .content-icon{
+            background: url("1.png");
+            width: 121px;
+            height: 23px;
+            float: left;
+            margin-top: 11px;
+            /*display: inline-block;*/
+        }
+        .content_menu{
+            margin-left: 20px;
+            float: left;
+            /*border: solid 1px fuchsia;*/
+        }
+        .content_menu a.nr{
+            color: #c0cddf;
+            margin-left: -8px;
+            padding: 0 13px 0 13px;
+            display: inline-block;
+            font-size: small;
+            /*border: solid 1px red;*/
+        }
+        .content_menu a.nr:hover{
+            color: #c0cddf;
+            background-color: #d0ffbf;
+        }
+        .search_area{
+            float: right;
+            /*border: solid 1px rebeccapurple;*/
+        }
+        .search_area .seach{
+            height: 20px;
+            width: 100px;
+            /*display: inline-block;*/
+            float: left;
+            margin-top: 10px;
+            background-color: #FFFFFF;;
+        }
+        .search_area a.i{
+            display: inline-block;
+            line-height: 26px;
+            width: 24px;
+            /*border: solid 1px royalblue;*/
+            float: left;
+            margin-top: 10px;
+            background-color: #FFFFFF;
+
+        }
+        .search_area a.i .seach_icon{
+            height: 15px;
+            width: 15px;
+            /*border: solid 1px coral;*/
+            display: inline-block;
+            margin-bottom: -2px;
+            margin-left: 6px;
+            background: url("2.png") no-repeat 0 -195px;
+
+        }
+    </style>
+<body>
+
+    <div class="navicat">
+        <div class="navicat-content">
+            <a class="content-icon" href="#"></a>
+            <div class="content_menu">
+                <a href="#" class="nr activity">全部</a>
+                <a href="#" class="nr">42区</a>
+                <a href="#" class="nr">段子</a>
+                <a href="#" class="nr">图片</a>
+                <a href="#" class="nr">挨踢1024</a>
+                <a href="#" class="nr">你问我答</a>
+
+            </div>
+            <div class="search_area">
+                <span style="float: left">
+                    <form action="/" method="post">
+                    <input type="text" class="seach">
+                </form>
+                </span>
+
+                <a href="http://gongnanxiong.top" class="i"><span class="seach_icon"></span></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

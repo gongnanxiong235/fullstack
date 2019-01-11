@@ -1,0 +1,40 @@
+
+
+<!--
+
+css的四种引入方式：
+    1.直接在html标签中加上style属性
+    2.在当前html的head中加入style
+    3.link式：在其他地方新建.css文件中写，然后在当前html的head中引入：<link type="text/css" href="style-1.css" rel="stylesheet">
+    4.import的方式：不建议使用
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--这种方式只能作用于当前html页面，可以用引入link的方式-->
+    <!--<style>-->
+        <!--div{-->
+            <!--color: #cc3399;background-color: #C0C0C0;-->
+        <!--}-->
+
+    <!--</style>-->
+
+    <!--<style>-->
+        <!--&lt;!&ndash; 这种方式不建议使用，以为html的加载顺序为：等所有代码都加载完成后才能import会造成卡顿&ndash;&gt;-->
+        <!--@import "style-1.css";-->
+    <!--</style>-->
+
+    <!--链接式-->
+    <link type="text/css" href="style-1.css" rel="stylesheet">
+</head>
+<body>
+
+    <!--<p style="color: #cc3399;background-color: #C0C0C0"> hello p</p>-->
+
+    <!--多个样式控制一个属性的时候，以最近的一个为主-->
+    <div style="background-color: blue">hello div</div>
+</body>
+</html>

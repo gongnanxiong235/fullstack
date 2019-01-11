@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="www.w3.org/1999/xhtml">
+<head>
+    <title>CSS左图右文混排布局</title>
+    <meta http-equiv="content-Type" content="text/html;charset=utf-8">
+    <style type="text/css">
+        * {
+            margin:0;
+            padding:0;
+        }
+        h3 {
+            font-size:12px;
+            color:#0066CC;
+            line-height:2em;
+        }
+        p {
+            font-size:12px;
+            text-indent:2em;
+            line-height:1.5em;
+        }
+        #container {
+            width:300px;
+            margin:0 auto;
+            margin-top:10px;
+            padding-right:3px;
+            border:1px dotted #666;
+            position:relative;
+        }
+        #leftContent {
+            position:absolute;
+            top:4px;
+            left:4px;
+        }
+        #leftContent img{
+            height:80px;
+            width:100px;
+            border:1px solid #ccc;
+            padding:2px;
+        }
+        #rightContent {
+            margin-left:120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="leftContent"><img src="http://files.jb51.net/file_images/article/201505/2015513172559452.jpg"></div>
+            <div id="rightContent">
+                <h3><a href="#">十年朋友，一生财富</a></h3>
+                <p>十年之间，我不认识你，你不属于我，走过渐渐熟悉的街头，十年之后，我们是朋友，还可以问候，只是再也找不到。。。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

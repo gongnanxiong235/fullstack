@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.3.1.js"></script>
+</head>
+<body>
+
+    <div id="eh">点我隐藏和取消</div>
+    <div class="rr">111</div>
+    <div class="rr">111</div>
+    <div class="rr">111</div>
+    <div id="zun">
+        <div>
+            <input type="button" value="添加" onclick="add(this)">
+            <input type="text">
+        </div>
+    </div>
+
+
+
+    <input type="button" value="hello" onclick="hello()">
+    <input type="button" value="全选" onclick="selectAll()">
+    <input type="button" value="取消" onclick="cancelAll()">
+    <input type="button" value="反选" onclick="reverseAll()"><br>
+    <table border="1px">
+        <tr>
+            <td><input type="checkbox" id="1"></td>
+            <td>111</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="2"></td>
+            <td>222</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="3"></td>
+            <td>333</td>
+        </tr>
+    </table>
+
+    <script>
+
+        //show hide togg
+        $("#eh").click(function () {
+            $(".rr").toggle()
+        })
+
+        //clone append() parent() children() val()
+        function add(self) {
+            var cloneEle=$(self).parent().clone();
+            cloneEle.children(":button").val("删除").attr("onclick","del(this)")
+            $("#zun").append(cloneEle)//在内部添加元素
+
+        }
+        function del(self) {
+            //remove:删除全部；empty()：清空，只是清空标签里面的东西
+            $(self).parent().remove()
+        }
+
+        //prop attr jquery 循环(each)
+        function selectAll() {
+            $("table :checkbox").each(function () {
+                $(this).prop("checked",true)
+
+            })
+        }
+        function cancelAll() {
+            $("table :checkbox").each(function () {
+                //$(this).attr("checked",false)
+                //$(this).removeAttr("checked")
+                console.log($(this).parent().next().html())
+                $(this).prop("checked",false)
+            })
+        }
+        function reverseAll() {
+            $("table :checkbox").each(function () {
+                if($(this).prop("checked"))
+                {
+                    $(this).prop("checked",false)
+                }
+                else {
+                    $(this).prop("checked",true)
+                }
+            })
+        }
+
+        //$("table :checkbox").eq(1):input的属性选择器  eq()
+        function hello() {
+
+            $("table :checkbox").eq(1).each(function () {
+                console.log(this)
+            })
+        }
+    </script>
+</body>
+</html>
